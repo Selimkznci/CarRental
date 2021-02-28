@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,6 +25,11 @@ namespace Business.Concrete
         public List<Car> GetAllDailyPrice(double min )
         {
             return _carDal.GetAll(c => c.DailyPrice >= min);
+        }
+
+        public List<CarDetailDto> GetCarDetailDtos()
+        {
+            return _carDal.GetCarDetailDtos();
         }
 
         public List<Car> GetCarsByBrandId(int id)
